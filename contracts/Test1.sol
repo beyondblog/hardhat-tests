@@ -16,7 +16,7 @@ contract Test1 {
         uint256 startGas = gasleft();
         (bool success, bytes memory ret) = target.call(callData);
         uint256 gasUsed = startGas - gasleft();
-        console.log("call2 gasUsed = %s", gasUsed);
+        console.log("call2 swapTest gasUsed = %s", gasUsed);
 
         startGas = gasleft();
         this.test1(callData);
@@ -29,12 +29,13 @@ contract Test1 {
         console.log("abi.decode gasUsed = %s", gasUsed);
 
         startGas = gasleft();
-        this.test2(a, b);
+        this.swapTest(a, b);
         gasUsed = startGas - gasleft();
-        console.log("direct call gasUsed = %s", gasUsed);
+        console.log("direct call swapTest gasUsed = %s", gasUsed);
     }
 
     function test1(bytes memory callData) external {}
+
     function test2(uint256 a, uint256 b) external {}
 
     function swapTest(uint256 a, uint256 b)

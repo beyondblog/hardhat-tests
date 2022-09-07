@@ -5,6 +5,10 @@
     "@nomiclabs/hardhat-ethers": "^2.1.1",
     "@openzeppelin/hardhat-upgrades": "^1.20.0",
     "ethers": "^5.7.0",
-    "hardhat": "^2.10.2"
+    "hardhat": "^2.10.2",
+    "hardhat-gas-reporter": "^1.0.9"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.3"
   }
 }
