@@ -10,10 +10,10 @@ contract Test2 {
         USDT = IERC20(coin);
     }
 
-    function test1() external {
+    function test1(int256 count) external {
         address user = msg.sender;
         uint256 startGas = gasleft();
-        for (int256 i = 0; i < 10; i++) {
+        for (int256 i = 0; i < count; i++) {
             USDT.balanceOf(user);
         }
         uint256 gasUsed = startGas - gasleft();
@@ -21,6 +21,7 @@ contract Test2 {
     }
 
     function test2(address target, bytes[] memory calls) external {
+        console.log(calls.length);
         uint256 startGas = gasleft();
         for (uint256 i = 0; i < calls.length; i++) {
             target.call(calls[i]);

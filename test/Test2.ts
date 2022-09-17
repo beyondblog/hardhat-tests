@@ -12,11 +12,12 @@ describe("Test2", function () {
         console.log(`${owner.address} balance = ${balance}`)
         const Test2 = await ethers.getContractFactory("Test2");
         const test2 = await Test2.deploy(testCoin.address);
-        await test2.test1();
+        await test2.test1(10);
 
-        var targetAddress = test2.address;
+        var targetAddress = testCoin.address;
         var inputData = TestCoin.interface.encodeFunctionData("balanceOf", [owner.address]);
 
+        console.log(inputData);
         var calls = [];
 
         for(var i = 0;i<10;i++) {
